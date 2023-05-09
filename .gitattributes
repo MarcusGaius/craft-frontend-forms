@@ -4,6 +4,7 @@
 /.github/ export-ignore
 /.gitignore export-ignore
 /.scrutinizer.yml export-ignore
+/.vscode/ export-ignore
 /codeception.yml export-ignore
 /composer.lock export-ignore
 /buildchain/ export-ignore
