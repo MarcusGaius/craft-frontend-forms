@@ -6,10 +6,11 @@ use Craft;
 use craft\web\Application as CraftWebApp;
 use craft\web\twig\variables\CraftVariable;
 use MarcusGaius\FrontendForms\Web\Twig\Variables\FrontendForms as FFVariable;
+use yii\base\BootstrapInterface;
 use yii\base\Event;
 use yii\base\Module;
 
-class FrontendForms extends Module
+class FrontendForms extends Module implements BootstrapInterface
 {
 	const ID = 'frontend-forms';
 
