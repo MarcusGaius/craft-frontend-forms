@@ -1,11 +1,11 @@
 <?php
 
-namespace MarcusGaius\FrontendForms\Web\Twig\Variables;
+namespace MarcusGaius\Utilities\Web\Twig\Variables;
 
 use Craft;
 use craft\helpers\Template;
 
-class FrontendForms
+class Utilities
 {
 	public function renderFormMacro($macro, array $args)
 	{

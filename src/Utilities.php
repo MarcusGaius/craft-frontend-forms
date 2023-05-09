@@ -1,18 +1,19 @@
 <?php
 
-namespace MarcusGaius\FrontendForms;
+namespace MarcusGaius\Utilities;
 
 use Craft;
 use craft\web\Application as CraftWebApp;
 use craft\web\twig\variables\CraftVariable;
-use MarcusGaius\FrontendForms\Web\Twig\Variables\FrontendForms as FFVariable;
+use MarcusGaius\Utilities\Web\Twig\Extension;
+use MarcusGaius\Utilities\Web\Twig\Variables\Utilities as UtilitiesVariable;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
 use yii\base\Module;
 
-class FrontendForms extends Module implements BootstrapInterface
+class Utilities extends Module implements BootstrapInterface
 {
-	const ID = 'frontend-forms';
+	const ID = 'utils';
 
 	public function __construct($id = self::ID, $parent = null, $config = [])
 	{
@@ -31,7 +32,7 @@ class FrontendForms extends Module implements BootstrapInterface
 		$this->registerComponents();
 
 		$this->registerEventHandlers();
-		Craft::info('FrontendForms module bootstrapped', __METHOD__);
+		Craft::info('Utilities module bootstrapped', __METHOD__);
 	}
 
 	private function configureModule(): void
@@ -40,6 +41,7 @@ class FrontendForms extends Module implements BootstrapInterface
 
 	private function registerComponents(): void
 	{
+		Craft::$app->getView()->registerTwigExtension(new Extension);
 	}
 
 	private function registerEventHandlers(): void
@@ -50,7 +52,7 @@ class FrontendForms extends Module implements BootstrapInterface
 			function (Event $event) {
 				/** @var CraftVariable $variable */
 				$variable = $event->sender;
-				$variable->set('ff', FFVariable::class);
+				$variable->set('utils', UtilitiesVariable::class);
 			}
 		);
 	}
